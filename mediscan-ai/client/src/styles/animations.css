@@ -1,0 +1,68 @@
+/* MediScan AI — Animation Library */
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 4px currentColor; opacity: 1; } 50% { box-shadow: 0 0 12px currentColor, 0 0 20px currentColor; opacity: 0.8; } }
+@keyframes subtlePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes bounceSubtle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes ripple { 0% { transform: scale(0); opacity: 0.4; } 100% { transform: scale(4); opacity: 0; } }
+@keyframes bellShake { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(8deg); } 30% { transform: rotate(-8deg); } 45% { transform: rotate(5deg); } 60% { transform: rotate(-3deg); } }
+
+.animate-fadeIn { animation: fadeIn var(--duration-base) var(--ease-out) forwards; }
+.animate-fadeInUp { animation: fadeInUp var(--duration-slow) var(--ease-out) forwards; }
+.animate-fadeInDown { animation: fadeInDown var(--duration-base) var(--ease-out) forwards; }
+.animate-fadeInScale { animation: fadeInScale var(--duration-slow) var(--ease-out) forwards; }
+.animate-slideInLeft { animation: slideInLeft var(--duration-slow) var(--ease-out) forwards; }
+.animate-slideInRight { animation: slideInRight var(--duration-slow) var(--ease-out) forwards; }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-pulse { animation: subtlePulse 2s ease-in-out infinite; }
+.animate-bounce { animation: bounceSubtle 1.5s ease-in-out infinite; }
+
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--color-bg-tertiary) 0%, var(--color-bg-elevated) 50%, var(--color-bg-tertiary) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+
+.transition-all { transition: all var(--duration-base) var(--ease-out); }
+.transition-colors { transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.status-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+.status-pulse.online { color: var(--color-success); background: var(--color-success); }
+.status-pulse.warning { color: var(--color-warning); background: var(--color-warning); }
+.status-pulse.danger { color: var(--color-danger); background: var(--color-danger); }
+.status-pulse.processing { color: var(--color-accent); background: var(--color-accent); }

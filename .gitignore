@@ -1,0 +1,35 @@
+# Dependencies
+**/node_modules/
+**/package-lock.json
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Build output
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# AI Service - Large files (datasets & trained models)
+mediscan-ai/ai-service/data/
+mediscan-ai/ai-service/models/*.pth
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
